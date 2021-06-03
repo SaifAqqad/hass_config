@@ -1,0 +1,12 @@
+*.log
+known_devices.yaml
+pi_ssh_key
+pi_ssh_key.pub
+secrets.yaml
+www/
+themes/
+custom_components/
+blueprints/
+.storage/
+*.db*
+.HA_VERSION

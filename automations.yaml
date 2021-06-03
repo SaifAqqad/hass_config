@@ -1,0 +1,234 @@
+- id: '1599685242871'
+  alias: Turn off TV at midnight
+  description: ''
+  trigger:
+  - at: 03:35:00
+    platform: time
+  condition:
+  - condition: device
+    device_id: 2b8dfdff898542f98471c05728c644bf
+    domain: media_player
+    entity_id: media_player.living_room_tv
+    type: is_on
+  action:
+  - data: {}
+    entity_id: media_player.living_room_tv
+    service: media_player.turn_off
+  mode: single
+- id: '1603135766846'
+  alias: Auto Restart
+  description: ''
+  trigger:
+  - hours: '10'
+    platform: time_pattern
+  - hours: '19'
+    platform: time_pattern
+  condition: []
+  action:
+  - data: {}
+    service: homeassistant.restart
+  mode: single
+- id: '1618420788115'
+  alias: Auto TV On maghrib
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:00'
+  condition: []
+  action:
+  - service: media_player.turn_on
+    data: {}
+    entity_id: media_player.living_room_tv
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
+  - service: media_player.select_source
+    data:
+      source: HDMI
+    entity_id: media_player.living_room_tv
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.4
+    entity_id: media_player.living_room_tv
+  mode: single
+- id: '1622010139182'
+  alias: on motion - 2nd floor entrance
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ipcam_motion_6
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /media/snapshot_ipcam_6.jpg
+    entity_id: camera.ipcam_profilename025
+  - service: notify.all_devices
+    data_template:
+      data:
+        image: /media/local/snapshot_ipcam_6.jpg
+        timeout: 600
+        clickAction: !secret motion_6_clickAction
+        tag: '6'
+        channel: Indoor cameras
+        actions:
+        - action: URI
+          title: Watch stream
+          uri: app://com.hikvision.hikconnect
+      title: Motion detected
+      message: Someone is at the 2nd floor entrance
+  mode: single
+- id: '1622018300153'
+  alias: on motion - 1st floor entrance
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ipcam_motion_2
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /media/snapshot_ipcam_2.jpg
+    entity_id: camera.ipcam_profilename021
+  - service: notify.all_devices
+    data_template:
+      data:
+        image: /media/local/snapshot_ipcam_2.jpg
+        timeout: 600
+        clickAction: !secret motion_2_clickAction
+        tag: '2'
+        channel: Indoor cameras
+        actions:
+        - action: URI
+          title: Watch stream
+          uri: app://com.hikvision.hikconnect
+      title: Motion detected
+      message: Someone is at the 1st floor entrance
+  mode: single
+- id: '1622018482810'
+  alias: on motion - garage
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ipcam_motion_4
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /media/snapshot_ipcam_4.jpg
+    entity_id: camera.ipcam_profilename023
+  - service: notify.all_devices
+    data_template:
+      data:
+        image: /media/local/snapshot_ipcam_4.jpg
+        timeout: 600
+        clickAction: !secret motion_4_clickAction
+        tag: '4'
+        channel: Outdoor cameras
+        actions:
+        - action: URI
+          title: Watch stream
+          uri: app://com.hikvision.hikconnect
+      title: Motion detected
+      message: Someone is outside the garage
+  mode: single
+- id: '1622018652337'
+  alias: on motion - backyard
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ipcam_motion_5
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /media/snapshot_ipcam_5.jpg
+    entity_id: camera.ipcam_profilename024
+  - service: notify.all_devices
+    data_template:
+      data:
+        image: /media/local/snapshot_ipcam_5.jpg
+        timeout: 600
+        clickAction: !secret motion_5_clickAction
+        tag: '5'
+        channel: Outdoor cameras
+        actions:
+        - action: URI
+          title: Watch stream
+          uri: app://com.hikvision.hikconnect
+      title: Motion detected
+      message: Someone is in the backyard
+  mode: single
+- id: '1622018986698'
+  alias: on motion - front yard
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ipcam_motion_7
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /media/snapshot_ipcam_7.jpg
+    entity_id: camera.ipcam_profilename026
+  - service: notify.all_devices
+    data_template:
+      data:
+        image: /media/local/snapshot_ipcam_7.jpg
+        timeout: 600
+        clickAction: !secret motion_7_clickAction
+        tag: '7'
+        channel: Outdoor cameras
+        actions:
+        - action: URI
+          title: Watch stream
+          uri: app://com.hikvision.hikconnect
+      title: Motion detected
+      message: Someone is at the front yard
+  mode: single
+- id: '1622019496381'
+  alias: on motion - anooma
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.ipcam_motion_3
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /media/snapshot_ipcam_3.jpg
+    entity_id: camera.ipcam_profilename022
+  - service: notify.all_devices
+    data_template:
+      data:
+        image: /media/local/snapshot_ipcam_3.jpg
+        timeout: 600
+        clickAction: !secret motion_3_clickAction
+        tag: '3'
+        channel: anooma alert
+        actions:
+        - action: URI
+          title: Watch stream
+          uri: app://com.hikvision.hikconnect
+      title: Motion detected
+      message: anooma alert
+  mode: single

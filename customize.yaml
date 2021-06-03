@@ -1,0 +1,21 @@
+switch.qbittorrent:
+  friendly_name: qbittorrent alt speed
+  icon: mdi:speedometer-slow
+sensor.qbittorrent_down_speed:
+  icon: mdi:download
+sensor.qbittorrent_up_speed:
+  icon: mdi:upload
+switch.qbittorrent_alt_speed:
+  icon: mdi:speedometer-slow
+sensor.sonarr_queue:
+  friendly_name: Download Queue
+sensor.sonarr_shows:
+  friendly_name: TV Shows
+sensor.sonarr_upcoming:
+  friendly_name: Upcoming Episodes
+  icon: mdi:play-box-outline
+sensor.sonarr_wanted:
+  friendly_name: Wanted Episodes
+  icon: mdi:play-box-outline
+vacuum.robovac:
+  friendly_name: RoboVac

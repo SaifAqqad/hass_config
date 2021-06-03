@@ -1,0 +1,107 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  customize: !include customize.yaml
+  time_zone: Asia/Amman
+  unit_system: metric
+  name: Home
+  latitude: !secret ha_lat
+  longitude: !secret ha_long
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+sun:
+
+vacuum:  
+  - platform: eufy_vacuum
+
+# eufy_vacuum:
+#   devices:
+#     name: RoboVac
+#     address: 192.168.0.161
+#     access_token: !secret eufy_token
+#     id: !secret eufy_id
+#     type: T2118
+
+recorder:
+  purge_keep_days: 2
+  commit_interval: 15
+  exclude:
+    domains:
+      - automation
+      - updater
+      - media_player
+    event_types:
+      - call_service
+
+shell_command:
+  pi_restart_cameras: "ssh -i /config/pi_ssh_key -x -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no pi@192.168.0.74 sudo systemctl restart camplayer"
+  pi_shutdown_cameras: "ssh -i /config/pi_ssh_key -x -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no pi@192.168.0.74 sudo systemctl stop camplayer"
+  pi_restart_system: "ssh -i /config/pi_ssh_key -x -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no pi@192.168.0.74 sudo reboot"
+  pi_shutdown_system: "ssh -i /config/pi_ssh_key -x -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no pi@192.168.0.74 sudo shutdown -P now"
+
+ffmpeg:
+stream:
+
+camera:
+  - platform: local_file
+    name: motion_2nd_floor_entrance
+    file_path: /media/snapshot_ipcam_6.jpg
+  - platform: local_file
+    name: motion_1st_floor_entrance
+    file_path: /media/snapshot_ipcam_2.jpg
+  - platform: local_file
+    name: motion_backyard
+    file_path: /media/snapshot_ipcam_5.jpg
+  - platform: local_file
+    name: motion_garage
+    file_path: /media/snapshot_ipcam_4.jpg
+  - platform: local_file
+    name: motion_outdoor_entryway
+    file_path: /media/snapshot_ipcam_7.jpg
+  - platform: local_file
+    name: motion_anooma
+    file_path: /media/snapshot_ipcam_3.jpg
+
+
+binary_sensor:
+  - platform: hikvision
+    host: 192.168.0.220
+    username: !secret hik_user
+    password: !secret hik_pass
+
+notify:
+  - name: ALL_DEVICES
+    platform: group
+    services:
+      - service: mobile_app_nokia_7_plus
+      - service: mobile_app_nokia_6_1
+      - service: mobile_app_sm_n950f
+      - service: mobile_app_sm_a530f
+      - service: mobile_app_nokia_6_1_plus
+      - service: mobile_app_sm_m625f
+
+speedtestdotnet:
+  server_id: 34155 # VTEL server
+
+automation: !include automations.yaml
+
+switch:
+  - platform: qbittorrent_alternative_speed
+    host: localserver.io
+    username: !secret localserver_user
+    password: !secret localserver_pass
+    port: !secret qbt_port
+    name: qbittorrent alt speed
+
+sensor:
+  - platform: uptime
+    name: Time Online
+
+  - platform: qbittorrent
+    url: !secret qbt_url
+    username: !secret localserver_user
+    password: !secret localserver_pass
+
