@@ -19,6 +19,8 @@ device_tracker:
     host: !secret luci_host
     username: !secret luci_username
     password: !secret luci_password
+    ssl: true
+    verify_ssl : false
 
 recorder:
   purge_keep_days: 2
