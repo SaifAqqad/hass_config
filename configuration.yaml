@@ -14,16 +14,11 @@ frontend:
 
 sun:
 
-# vacuum:  
-#   - platform: eufy_vacuum
-
-# eufy_vacuum:
-#   devices:
-#     name: RoboVac
-#     address: 192.168.0.161
-#     access_token: !secret eufy_token
-#     id: !secret eufy_id
-#     type: T2118
+device_tracker:
+  - platform: luci
+    host: !secret luci_host
+    username: !secret luci_username
+    password: !secret luci_password
 
 recorder:
   purge_keep_days: 2
@@ -102,3 +97,13 @@ sensor:
     username: !secret localserver_user
     password: !secret localserver_pass
 
+
+# vacuum:  
+#   - platform: eufy_vacuum
+# eufy_vacuum:
+#   devices:
+#     name: RoboVac
+#     address: 192.168.0.161
+#     access_token: !secret eufy_token
+#     id: !secret eufy_id
+#     type: T2118
