@@ -10,3 +10,4 @@ blueprints/
 .storage/
 *.db*
 .HA_VERSION
+ssh
