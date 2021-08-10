@@ -99,6 +99,14 @@ sensor:
     username: !secret localserver_user
     password: !secret localserver_pass
 
+  - platform: radarr
+    host: !secret radarr_host
+    port: !secret radarr_port
+    api_key: !secret radarr_api_key 
+    monitored_conditions:
+      - upcoming
+      - commands
+      - status
 
 # vacuum:  
 #   - platform: eufy_vacuum
