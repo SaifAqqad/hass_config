@@ -58,6 +58,33 @@
       volume_level: 0.4
     entity_id: media_player.living_room_tv
   mode: single
+- id: '1618420788116'
+  alias: Cleanup motion at midnight
+  description: ''
+  mode: single
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  condition: []
+  action:
+    - service: shell_command.cam_cleanup
+      data:
+        folder: /media/ipcam_6
+    - service: shell_command.cam_cleanup
+      data:
+        folder: /media/ipcam_5
+    - service: shell_command.cam_cleanup
+      data:
+        folder: /media/ipcam_2
+    - service: shell_command.cam_cleanup
+      data:
+        folder: /media/ipcam_4
+    - service: shell_command.cam_cleanup
+      data:
+        folder: /media/ipcam_7
+    - service: shell_command.cam_cleanup
+      data:
+        folder: /media/ipcam_3
 - id: '1622010139182'
   alias: on motion - 2nd floor entrance
   description: ''
