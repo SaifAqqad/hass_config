@@ -85,7 +85,7 @@ automation: !include automations.yaml
 
 switch:
   - platform: qbittorrent_alternative_speed
-    host: localserver.io
+    host: torrent.home.io
     username: !secret localserver_user
     password: !secret localserver_pass
     port: !secret qbt_port
