@@ -34,10 +34,10 @@ recorder:
       - call_service
 
 shell_command:
-  pi_restart_cameras: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa pi@192.168.0.74 "sudo systemctl restart camplayer"'
-  pi_shutdown_cameras: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa pi@192.168.0.74 "sudo systemctl stop camplayer"'
-  pi_restart_system: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa pi@192.168.0.74 "sudo reboot"'
-  pi_shutdown_system: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa pi@192.168.0.74 "sudo shutdown -P now"'
+  pi_restart_cameras: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl restart camplayer"'
+  pi_shutdown_cameras: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl stop camplayer"'
+  pi_restart_system: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo reboot"'
+  pi_shutdown_system: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo shutdown -P now"'
   cam_copy_latest: "cp -f \"{{folder}}/snapshot_latest.jpg\" \"{{folder}}/snapshot_{{now()}}.jpg\""
   cam_cleanup: "rm -rf \"/media/{{folder}}\""
 
