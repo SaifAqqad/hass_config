@@ -69,22 +69,22 @@
   action:
     - service: shell_command.cam_cleanup
       data:
-        folder: /media/ipcam_6
+        folder: ipcam_6
     - service: shell_command.cam_cleanup
       data:
-        folder: /media/ipcam_5
+        folder: ipcam_5
     - service: shell_command.cam_cleanup
       data:
-        folder: /media/ipcam_2
+        folder: ipcam_2
     - service: shell_command.cam_cleanup
       data:
-        folder: /media/ipcam_4
+        folder: ipcam_4
     - service: shell_command.cam_cleanup
       data:
-        folder: /media/ipcam_7
+        folder: ipcam_7
     - service: shell_command.cam_cleanup
       data:
-        folder: /media/ipcam_3
+        folder: ipcam_3
 - id: '1622010139182'
   alias: on motion - 2nd floor entrance
   description: ''
