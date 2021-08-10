@@ -46,22 +46,22 @@ stream:
 camera:
   - platform: local_file
     name: motion_2nd_floor_entrance
-    file_path: /media/snapshot_ipcam_6.jpg
+    file_path: /media/ipcam_6/snapshot_latest.jpg
   - platform: local_file
     name: motion_1st_floor_entrance
-    file_path: /media/snapshot_ipcam_2.jpg
+    file_path: /media/ipcam_2/snapshot_latest.jpg
   - platform: local_file
     name: motion_backyard
-    file_path: /media/snapshot_ipcam_5.jpg
+    file_path: /media/ipcam_5/snapshot_latest.jpg
   - platform: local_file
     name: motion_garage
-    file_path: /media/snapshot_ipcam_4.jpg
+    file_path: /media/ipcam_4/snapshot_latest.jpg
   - platform: local_file
     name: motion_outdoor_entryway
-    file_path: /media/snapshot_ipcam_7.jpg
+    file_path: /media/ipcam_7/snapshot_latest.jpg
   - platform: local_file
     name: motion_anooma
-    file_path: /media/snapshot_ipcam_3.jpg
+    file_path: /media/ipcam_3/snapshot_latest.jpg
 
 
 binary_sensor:
