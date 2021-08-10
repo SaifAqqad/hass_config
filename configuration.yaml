@@ -83,9 +83,6 @@ notify:
       - service: mobile_app_nokia_6_1_plus
       - service: mobile_app_sm_m625f
 
-speedtestdotnet:
-  server_id: 34155 # VTEL server
-
 automation: !include automations.yaml
 
 switch:
