@@ -71,7 +71,7 @@
   - service: camera.snapshot
     data:
       filename: /media/ipcam_6/snapshot_latest.jpg
-    entity_id: camera.ipcam_profilename025
+    entity_id: camera.ipcam_profilename024
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_6
@@ -103,7 +103,7 @@
   - service: camera.snapshot
     data:
       filename: /media/ipcam_2/snapshot_latest.jpg
-    entity_id: camera.ipcam_profilename021
+    entity_id: camera.ipcam_profilename020
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_2
@@ -135,7 +135,7 @@
   - service: camera.snapshot
     data:
       filename: /media/ipcam_4/snapshot_latest.jpg
-    entity_id: camera.ipcam_profilename023
+    entity_id: camera.ipcam_profilename022
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_4
@@ -167,7 +167,7 @@
   - service: camera.snapshot
     data:
       filename: /media/ipcam_5/snapshot_latest.jpg
-    entity_id: camera.ipcam_profilename024
+    entity_id: camera.ipcam_profilename023
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_5
@@ -199,7 +199,7 @@
   - service: camera.snapshot
     data:
       filename: /media/ipcam_7/snapshot_latest.jpg
-    entity_id: camera.ipcam_profilename026
+    entity_id: camera.ipcam_profilename025
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_7
@@ -231,7 +231,7 @@
   - service: camera.snapshot
     data:
       filename: /media/ipcam_3/snapshot_latest.jpg
-    entity_id: camera.ipcam_profilename022
+    entity_id: camera.ipcam_profilename021
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_3
