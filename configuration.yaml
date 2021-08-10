@@ -89,12 +89,12 @@ speedtestdotnet:
 automation: !include automations.yaml
 
 switch:
-#   - platform: qbittorrent_alternative_speed
-#     host: localserver.io
-#     username: !secret localserver_user
-#     password: !secret localserver_pass
-#     port: !secret qbt_port
-#     name: qbittorrent alt speed
+  - platform: qbittorrent_alternative_speed
+    host: localserver.io
+    username: !secret localserver_user
+    password: !secret localserver_pass
+    port: !secret qbt_port
+    name: qbittorrent alt speed
 
 sensor:
   - platform: uptime
