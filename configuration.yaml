@@ -114,9 +114,6 @@ sensor:
       - commands
       - status
 
-  - platform: mqtt
-    state_topic: "home/sensor/rpi/monitor"
-
 # vacuum:  
 #   - platform: eufy_vacuum
 # eufy_vacuum:
