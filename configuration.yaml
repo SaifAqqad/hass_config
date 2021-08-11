@@ -33,13 +33,14 @@ recorder:
     event_types:
       - call_service
 
+# https://blog.ceard.tech/2020/05/home-assistant-docker-and-using-ssh.html 
 shell_command:
   pi_restart_cameras: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl restart camplayer"'
   pi_shutdown_cameras: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl stop camplayer"'
   pi_restart_system: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo reboot"'
   pi_shutdown_system: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo shutdown -P now"'
   cam_copy_latest: "cp -f \"{{folder}}/snapshot_latest.jpg\" \"{{folder}}/snapshot_{{now()}}.jpg\""
-  cam_cleanup: "rm -rf \"/media/{{folder}}\""
+  cam_cleanup: "find /media/{{folder}} -type f -name "*.jpg" -exec rm -f "{}" \;"
 
 ffmpeg:
 stream:
