@@ -29,11 +29,6 @@
                 "id": "8eb81d29bd2f4c9b941eef6b38da2502"
             },
             {
-                "url": "/hacsfiles/themable-grid/themable-grid.js?hacstag=321773656210",
-                "type": "module",
-                "id": "2236fb9c70504403b1cb09358af869a1"
-            },
-            {
                 "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866230",
                 "type": "module",
                 "id": "94106870ce0b4b3db790685fb4287400"
@@ -42,6 +37,11 @@
                 "url": "/hacsfiles/surveillance-card/surveillance-card.js?hacstag=147764937005",
                 "type": "module",
                 "id": "1b8db1cac2ae45bc988e7698a2559c63"
+            },
+            {
+                "url": "/hacsfiles/lovelace-rpi-monitor-card/rpi-monitor-card.js?hacstag=281214271125",
+                "type": "module",
+                "id": "aec68bd0958e40deb324d26f7311616d"
             }
         ]
     }

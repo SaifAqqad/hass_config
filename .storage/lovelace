@@ -9,7 +9,165 @@
                     "icon": "mdi:television",
                     "path": "tv",
                     "theme": "Google Dark Theme",
-                    "badges": []
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:layout-card",
+                            "layout_type": "vertical",
+                            "layout": {},
+                            "cards": [
+                                {
+                                    "type": "custom:mini-media-player",
+                                    "group": false,
+                                    "volume_stateless": false,
+                                    "toggle_power": true,
+                                    "info": "scroll",
+                                    "source": "full",
+                                    "sound_mode": "full",
+                                    "hide": {
+                                        "runtime": false,
+                                        "power_state": false
+                                    },
+                                    "entity": "media_player.living_room_tv",
+                                    "artwork": "material"
+                                },
+                                {
+                                    "type": "custom:tv-card",
+                                    "entity": "media_player.living_room_tv",
+                                    "tv": true,
+                                    "power": {
+                                        "service": "media_player.toggle",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv"
+                                        }
+                                    },
+                                    "back": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_RETURN"
+                                        }
+                                    },
+                                    "home": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_HOME"
+                                        }
+                                    },
+                                    "up": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_UP"
+                                        }
+                                    },
+                                    "left": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_LEFT"
+                                        }
+                                    },
+                                    "select": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_ENTER"
+                                        }
+                                    },
+                                    "right": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_RIGHT"
+                                        }
+                                    },
+                                    "down": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_DOWN"
+                                        }
+                                    },
+                                    "play": {
+                                        "service": "media_player.media_play_pause",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_PLAY"
+                                        }
+                                    },
+                                    "reverse": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv"
+                                        }
+                                    },
+                                    "forward": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_FF"
+                                        }
+                                    },
+                                    "volume_up": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_VOLUP"
+                                        }
+                                    },
+                                    "volume_down": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_VOLDOWN"
+                                        }
+                                    },
+                                    "volume_mute": {
+                                        "service": "media_player.play_media",
+                                        "service_data": {
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_MUTE"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "custom:mini-media-player",
+                                    "name": "Plex",
+                                    "group": false,
+                                    "volume_stateless": false,
+                                    "toggle_power": false,
+                                    "icon": "mdi:plex",
+                                    "idle_view": {
+                                        "when_idle": false,
+                                        "when_standby": false,
+                                        "when_pause": false
+                                    },
+                                    "hide": {
+                                        "state_label": true
+                                    },
+                                    "entity": "media_player.plex_plex_for_samsung_tv_2016",
+                                    "source": "icon",
+                                    "sound_mode": "icon",
+                                    "artwork": "material",
+                                    "info": "scroll"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "title": "Pi Controls",
@@ -29,6 +187,7 @@
                                         "action": "call-service",
                                         "service": "shell_command.pi_restart_cameras",
                                         "service_data": {},
+                                        "confirmation": true,
                                         "target": {}
                                     },
                                     "name": "Restart Cameras",
@@ -45,6 +204,7 @@
                                         "action": "call-service",
                                         "service": "shell_command.pi_shutdown_cameras",
                                         "service_data": {},
+                                        "confirmation": true,
                                         "target": {}
                                     },
                                     "icon": "mdi:camera-off",
@@ -64,6 +224,7 @@
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "shell_command.pi_restart_system",
+                                        "confirmation": true,
                                         "service_data": {},
                                         "target": {}
                                     },
@@ -75,6 +236,7 @@
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "shell_command.pi_shutdown_system",
+                                        "confirmation": true,
                                         "service_data": {},
                                         "target": {}
                                     },
@@ -92,7 +254,7 @@
                     "theme": "Google Dark Theme",
                     "layout": {
                         "max_cols": 2,
-                        "width": 400,
+                        "width": 300,
                         "max_width": 800
                     },
                     "type": "custom:horizontal-layout",
@@ -107,7 +269,7 @@
                                 }
                             ],
                             "title": "1st Floor Entrance",
-                            "show_reload": false,
+                            "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
@@ -123,7 +285,7 @@
                             ],
                             "title": "Front Yard",
                             "menu_alignment": "Top",
-                            "show_reload": false,
+                            "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true
@@ -138,7 +300,7 @@
                             ],
                             "title": "2st Floor Entrance",
                             "menu_alignment": "Top",
-                            "show_reload": false,
+                            "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true
@@ -152,7 +314,7 @@
                                 }
                             ],
                             "menu_alignment": "Top",
-                            "show_reload": false,
+                            "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
@@ -168,7 +330,7 @@
                             ],
                             "title": "Backyard",
                             "menu_alignment": "Top",
-                            "show_reload": false,
+                            "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true
@@ -183,7 +345,7 @@
                             ],
                             "title": "Garage",
                             "menu_alignment": "Top",
-                            "show_reload": false,
+                            "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true
