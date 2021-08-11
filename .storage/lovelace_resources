@@ -1,0 +1,48 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "url": "/hacsfiles/mini-graph-card/mini-graph-card-bundle.js?hacstag=1512800620100",
+                "type": "module",
+                "id": "e02e7db4d86142e2be0f8d42ff611fe4"
+            },
+            {
+                "url": "/hacsfiles/mini-media-player/mini-media-player-bundle.js?hacstag=1485208381121",
+                "type": "module",
+                "id": "b1c95e7ca3d1422d87c9bf1ac3b9d442"
+            },
+            {
+                "url": "/hacsfiles/tv-card/tv-card.js?hacstag=187339794014",
+                "type": "module",
+                "id": "e1408d97e75a42f0aa6ce53df3509e5a"
+            },
+            {
+                "url": "/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js?hacstag=142051833041",
+                "type": "module",
+                "id": "b363048f92b44add8a237e3415a77425"
+            },
+            {
+                "url": "/hacsfiles/gallery-card/gallery-card.js?hacstag=28428386731",
+                "type": "module",
+                "id": "8eb81d29bd2f4c9b941eef6b38da2502"
+            },
+            {
+                "url": "/hacsfiles/themable-grid/themable-grid.js?hacstag=321773656210",
+                "type": "module",
+                "id": "2236fb9c70504403b1cb09358af869a1"
+            },
+            {
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866230",
+                "type": "module",
+                "id": "94106870ce0b4b3db790685fb4287400"
+            },
+            {
+                "url": "/hacsfiles/surveillance-card/surveillance-card.js?hacstag=147764937005",
+                "type": "module",
+                "id": "1b8db1cac2ae45bc988e7698a2559c63"
+            }
+        ]
+    }
+}

@@ -1,0 +1,241 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "TV",
+                    "icon": "mdi:television",
+                    "path": "tv",
+                    "theme": "Google Dark Theme",
+                    "badges": []
+                },
+                {
+                    "title": "Pi Controls",
+                    "path": "pi",
+                    "icon": "mdi:raspberry-pi",
+                    "theme": "Google Dark Theme",
+                    "type": "sidebar",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:layout-card",
+                            "layout": {},
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "shell_command.pi_restart_cameras",
+                                        "service_data": {},
+                                        "target": {}
+                                    },
+                                    "name": "Restart Cameras",
+                                    "icon": "mdi:camera-retake",
+                                    "show_state": false,
+                                    "show_icon": true,
+                                    "hold_action": {
+                                        "action": "none"
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "shell_command.pi_shutdown_cameras",
+                                        "service_data": {},
+                                        "target": {}
+                                    },
+                                    "icon": "mdi:camera-off",
+                                    "name": "Shutdown Cameras",
+                                    "hold_action": {
+                                        "action": "none"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:layout-card",
+                            "layout": {},
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "shell_command.pi_restart_system",
+                                        "service_data": {},
+                                        "target": {}
+                                    },
+                                    "name": "Restart pi",
+                                    "icon": "mdi:restart"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "shell_command.pi_shutdown_system",
+                                        "service_data": {},
+                                        "target": {}
+                                    },
+                                    "name": "Shutdown Pi",
+                                    "icon": "mdi:power"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Motion",
+                    "path": "motion",
+                    "icon": "mdi:motion-sensor",
+                    "theme": "Google Dark Theme",
+                    "layout": {
+                        "max_cols": 2,
+                        "width": 400,
+                        "max_width": 800
+                    },
+                    "type": "custom:horizontal-layout",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:gallery-card",
+                            "entities": [
+                                {
+                                    "path": "media-source://media_source/local/ipcam_2",
+                                    "recursive": true
+                                }
+                            ],
+                            "title": "1st Floor Entrance",
+                            "show_reload": false,
+                            "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
+                            "caption_format": "%H:%M %p",
+                            "reverse_sort": true,
+                            "menu_alignment": "Top"
+                        },
+                        {
+                            "type": "custom:gallery-card",
+                            "entities": [
+                                {
+                                    "path": "media-source://media_source/local/ipcam_7",
+                                    "recursive": false
+                                }
+                            ],
+                            "title": "Front Yard",
+                            "menu_alignment": "Top",
+                            "show_reload": false,
+                            "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
+                            "caption_format": "%H:%M %p",
+                            "reverse_sort": true
+                        },
+                        {
+                            "type": "custom:gallery-card",
+                            "entities": [
+                                {
+                                    "path": "media-source://media_source/local/ipcam_6",
+                                    "recursive": false
+                                }
+                            ],
+                            "title": "2st Floor Entrance",
+                            "menu_alignment": "Top",
+                            "show_reload": false,
+                            "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
+                            "caption_format": "%H:%M %p",
+                            "reverse_sort": true
+                        },
+                        {
+                            "type": "custom:gallery-card",
+                            "entities": [
+                                {
+                                    "path": "media-source://media_source/local/ipcam_3",
+                                    "recursive": false
+                                }
+                            ],
+                            "menu_alignment": "Top",
+                            "show_reload": false,
+                            "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
+                            "caption_format": "%H:%M %p",
+                            "reverse_sort": true,
+                            "title": "Anooma"
+                        },
+                        {
+                            "type": "custom:gallery-card",
+                            "entities": [
+                                {
+                                    "path": "media-source://media_source/local/ipcam_5",
+                                    "recursive": false
+                                }
+                            ],
+                            "title": "Backyard",
+                            "menu_alignment": "Top",
+                            "show_reload": false,
+                            "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
+                            "caption_format": "%H:%M %p",
+                            "reverse_sort": true
+                        },
+                        {
+                            "type": "custom:gallery-card",
+                            "entities": [
+                                {
+                                    "path": "media-source://media_source/local/ipcam_4",
+                                    "recursive": false
+                                }
+                            ],
+                            "title": "Garage",
+                            "menu_alignment": "Top",
+                            "show_reload": false,
+                            "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
+                            "caption_format": "%H:%M %p",
+                            "reverse_sort": true
+                        }
+                    ]
+                },
+                {
+                    "title": "Surveillance",
+                    "path": "cctv",
+                    "icon": "mdi:cctv",
+                    "type": "panel",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:surveillance-card",
+                            "thumb_interval": 10,
+                            "update_interval": 0.5,
+                            "focus_motion": false,
+                            "show_capture_buttons": false,
+                            "cameras": [
+                                {
+                                    "entity": "camera.ipcam_profilename024"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename026"
+                                },
+                                {
+                                    "entity": "camera.amcrest_mediaprofile_channel1_substream1"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename019"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename020"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename021"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename022"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename023"
+                                },
+                                {
+                                    "entity": "camera.ipcam_profilename025"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

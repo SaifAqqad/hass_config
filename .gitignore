@@ -1,13 +1,19 @@
-*.log
-known_devices.yaml
-pi_ssh_key
-pi_ssh_key.pub
-secrets.yaml
-www/
-themes/
-custom_components/
-blueprints/
-.storage/
-*.db*
-.HA_VERSION
-ssh
+# blacklist files/folders in ./
+/*
+# except these files
+!configuration.yaml
+!automations.yaml
+!customize.yaml
+!README.md
+!.gitignore
+
+
+# except this folder
+!.storage/
+# blacklist files/folders inside this folder
+.storage/*
+#except these files
+!.storage/lovelace
+!.storage/lovelace_dashboards
+!.storage/lovelace_resources
+
