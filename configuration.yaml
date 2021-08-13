@@ -89,21 +89,21 @@ notify:
 automation: !include automations.yaml
 
 switch:
-  - platform: qbittorrent_alternative_speed
-    host: torrent.home.io
-    username: !secret localserver_user
-    password: !secret localserver_pass
-    port: !secret qbt_port
-    name: qbittorrent alt speed
+  #- platform: qbittorrent_alternative_speed
+  #  host: torrent.home.io
+  #  username: !secret localserver_user
+  ##  password: !secret localserver_pass
+  ##  port: !secret qbt_port
+  ##  name: qbittorrent alt speed
 
 sensor:
   - platform: uptime
     name: Time Online
 
-  - platform: qbittorrent
-    url: !secret qbt_url
-    username: !secret localserver_user
-    password: !secret localserver_pass
+ ## - platform: qbittorrent
+  ##  url: !secret qbt_url
+  ##  username: !secret localserver_user
+   ## password: !secret localserver_pass
 
   - platform: radarr
     host: !secret radarr_host
