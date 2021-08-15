@@ -93,6 +93,9 @@
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_6
+  - service: shell_command.cam_rm_excess
+    data:
+      folder: ipcam_6
   - service: notify.all_devices
     data_template:
       data:
@@ -127,6 +130,9 @@
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_2
+  - service: shell_command.cam_rm_excess
+    data:
+      folder: ipcam_2
   - service: notify.all_devices
     data_template:
       data:
@@ -161,6 +167,9 @@
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_4
+  - service: shell_command.cam_rm_excess
+    data:
+      folder: ipcam_4
   - service: notify.all_devices
     data_template:
       data:
@@ -195,6 +204,9 @@
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_5
+  - service: shell_command.cam_rm_excess
+    data:
+      folder: ipcam_5
   - service: notify.all_devices
     data_template:
       data:
@@ -229,6 +241,9 @@
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_7
+  - service: shell_command.cam_rm_excess
+    data:
+      folder: ipcam_7
   - service: notify.all_devices
     data_template:
       data:
@@ -263,6 +278,9 @@
   - service: shell_command.cam_copy_latest
     data:
       folder: /media/ipcam_3
+  - service: shell_command.cam_rm_excess
+    data:
+      folder: ipcam_3
   - service: notify.all_devices
     data_template:
       data:
