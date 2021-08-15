@@ -273,7 +273,8 @@
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
-                            "menu_alignment": "Top"
+                            "menu_alignment": "Top",
+                            "maximum_files": "20"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -288,7 +289,8 @@
                             "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
-                            "reverse_sort": true
+                            "reverse_sort": true,
+                            "maximum_files": "20"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -303,7 +305,8 @@
                             "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
-                            "reverse_sort": true
+                            "reverse_sort": true,
+                            "maximum_files": "20"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -318,7 +321,8 @@
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
-                            "title": "Anooma"
+                            "title": "Anooma",
+                            "maximum_files": "20"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -333,7 +337,8 @@
                             "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
-                            "reverse_sort": true
+                            "reverse_sort": true,
+                            "maximum_files": "20"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -348,6 +353,7 @@
                             "show_reload": true,
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
+                            "maximum_files": "20",
                             "reverse_sort": true
                         }
                     ]
@@ -396,6 +402,21 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "title": "Router",
+                    "path": "router",
+                    "icon": "mdi:router-network",
+                    "visible": [
+                        {
+                            "user": "2df8b5ed16b64811a7fe2fa9b9442bf0"
+                        },
+                        {
+                            "user": "3bbdfbe8ee684b3ba189b9a1b8fb4e9f"
+                        }
+                    ],
+                    "badges": [],
+                    "cards": []
                 }
             ]
         }

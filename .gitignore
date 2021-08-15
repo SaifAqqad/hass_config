@@ -6,7 +6,7 @@
 !customize.yaml
 !README.md
 !.gitignore
-
+!rm_excess.sh
 
 # except this folder
 !.storage/
