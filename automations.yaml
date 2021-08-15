@@ -18,7 +18,7 @@
   mode: single
 # Auto TV On
 - id: '1618420788115'
-  alias: Auto TV On maghrib
+  alias: Auto TV On
   description: ''
   trigger:
   - platform: time
