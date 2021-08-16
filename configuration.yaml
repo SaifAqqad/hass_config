@@ -75,7 +75,23 @@ binary_sensor:
     host: 192.168.0.220
     username: !secret hik_user
     password: !secret hik_pass
-
+    customize:
+      motion_1:
+        delay: 0
+      motion_2:
+        delay: 0
+      motion_3:
+        delay: 0
+      motion_4:
+        delay: 0
+      motion_5:
+        delay: 0
+      motion_6:
+        delay: 0
+      motion_7:
+        delay: 0
+      motion_8:
+        delay: 0
 notify:
   - name: ALL_DEVICES
     platform: group
