@@ -24,11 +24,6 @@
                 "id": "b363048f92b44add8a237e3415a77425"
             },
             {
-                "url": "/hacsfiles/gallery-card/gallery-card.js?hacstag=28428386731",
-                "type": "module",
-                "id": "8eb81d29bd2f4c9b941eef6b38da2502"
-            },
-            {
                 "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866230",
                 "type": "module",
                 "id": "94106870ce0b4b3db790685fb4287400"
@@ -42,6 +37,11 @@
                 "url": "/hacsfiles/lovelace-rpi-monitor-card/rpi-monitor-card.js?hacstag=281214271125",
                 "type": "module",
                 "id": "aec68bd0958e40deb324d26f7311616d"
+            },
+            {
+                "url": "/hacsfiles/gallery-card/gallery-card.js?hacstag=397257186685469",
+                "type": "module",
+                "id": "34f88ebc55fe48d797a70c470d61d87b"
             }
         ]
     }

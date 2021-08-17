@@ -274,7 +274,8 @@
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
                             "menu_alignment": "Top",
-                            "maximum_files": "20"
+                            "maximum_files": "20",
+                            "fallback_caption": "Latest capture"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -290,7 +291,8 @@
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
-                            "maximum_files": "20"
+                            "maximum_files": "20",
+                            "fallback_caption": "Latest capture"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -306,7 +308,8 @@
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
-                            "maximum_files": "20"
+                            "maximum_files": "20",
+                            "fallback_caption": "Latest capture"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -322,7 +325,8 @@
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
                             "title": "Anooma",
-                            "maximum_files": "20"
+                            "maximum_files": "20",
+                            "fallback_caption": "Latest capture"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -338,7 +342,8 @@
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "reverse_sort": true,
-                            "maximum_files": "20"
+                            "maximum_files": "20",
+                            "fallback_caption": "Latest capture"
                         },
                         {
                             "type": "custom:gallery-card",
@@ -354,7 +359,8 @@
                             "file_name_format": "snapshot_%YYY-%m-%d %H:%M:%S.*",
                             "caption_format": "%H:%M %p",
                             "maximum_files": "20",
-                            "reverse_sort": true
+                            "reverse_sort": true,
+                            "fallback_caption": "Latest capture"
                         }
                     ]
                 },
@@ -404,9 +410,9 @@
                     ]
                 },
                 {
-                    "title": "Router",
-                    "path": "router",
-                    "icon": "mdi:router-network",
+                    "title": "Network",
+                    "path": "network",
+                    "icon": "mdi:lan",
                     "visible": [
                         {
                             "user": "2df8b5ed16b64811a7fe2fa9b9442bf0"
@@ -416,7 +422,53 @@
                         }
                     ],
                     "badges": [],
-                    "cards": []
+                    "cards": [
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hp_laser_mfp_137fnw"
+                                        }
+                                    ],
+                                    "hours_to_show": 24,
+                                    "title": "HP Printer Status",
+                                    "refresh_interval": 1
+                                },
+                                {
+                                    "type": "glance",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hp_printer_uptime",
+                                            "name": "Uptime",
+                                            "icon": "mdi:clock"
+                                        },
+                                        {
+                                            "entity": "sensor.hp_printer_total_pages_printed",
+                                            "name": "Total Pages Printed",
+                                            "icon": "mdi:file"
+                                        }
+                                    ],
+                                    "state_color": false,
+                                    "show_icon": true
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.hp_printer_toner_level",
+                                    "min": 0,
+                                    "max": 100,
+                                    "needle": true,
+                                    "severity": {
+                                        "green": 50,
+                                        "yellow": 20,
+                                        "red": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
