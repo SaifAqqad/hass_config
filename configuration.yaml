@@ -113,7 +113,7 @@ sensor:
     auth_protocol: hmac-sha
     priv_key: !secret snmp_key
     priv_protocol: des
-    version: 3
+    version: '3'
   - platform: snmp
     name: HP Printer Uptime
     host: 192.168.0.230
@@ -126,7 +126,7 @@ sensor:
     auth_protocol: hmac-sha
     priv_key: !secret snmp_key
     priv_protocol: des
-    version: 3
+    version: '3'
   - platform: snmp
     name: HP Printer Toner Level
     host: 192.168.0.230
@@ -137,7 +137,7 @@ sensor:
     auth_protocol: hmac-sha
     priv_key: !secret snmp_key
     priv_protocol: des
-    version: 3
+    version: '3'
   - platform: snmp
     name: HP Printer Total Pages Printed
     host: 192.168.0.230
@@ -148,7 +148,7 @@ sensor:
     auth_protocol: hmac-sha
     priv_key: !secret snmp_key
     priv_protocol: des
-    version: 3
+    version: '3'
     
 
  ## - platform: qbittorrent
