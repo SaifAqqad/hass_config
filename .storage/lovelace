@@ -100,15 +100,15 @@
                                     "play": {
                                         "service": "media_player.media_play_pause",
                                         "service_data": {
-                                            "entity_id": "media_player.living_room_tv",
-                                            "media_content_type": "send_key",
-                                            "media_content_id": "KEY_PLAY"
+                                            "entity_id": "media_player.living_room_tv"
                                         }
                                     },
                                     "reverse": {
                                         "service": "media_player.play_media",
                                         "service_data": {
-                                            "entity_id": "media_player.living_room_tv"
+                                            "entity_id": "media_player.living_room_tv",
+                                            "media_content_type": "send_key",
+                                            "media_content_id": "KEY_REWIND"
                                         }
                                     },
                                     "forward": {
@@ -178,47 +178,27 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:layout-card",
-                            "layout": {},
+                            "type": "custom:vertical-stack-in-card",
+                            "title": "Living Room Pi",
                             "cards": [
                                 {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "shell_command.pi_restart_cameras",
-                                        "service_data": {},
-                                        "confirmation": true,
-                                        "target": {}
-                                    },
-                                    "name": "Restart Cameras",
-                                    "icon": "mdi:camera-retake",
-                                    "show_state": false,
-                                    "show_icon": true,
-                                    "hold_action": {
-                                        "action": "none"
-                                    }
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "switch.pi",
+                                            "name": "Raspberry Pi",
+                                            "icon": "mdi:power"
+                                        },
+                                        {
+                                            "entity": "switch.pi_camplayer",
+                                            "name": "Camplayer",
+                                            "icon": "mdi:cctv"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "shell_command.pi_shutdown_cameras",
-                                        "service_data": {},
-                                        "confirmation": true,
-                                        "target": {}
-                                    },
-                                    "icon": "mdi:camera-off",
-                                    "name": "Shutdown Cameras",
-                                    "hold_action": {
-                                        "action": "none"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:layout-card",
-                            "layout": {},
-                            "cards": [
+                                    "type": "divider"
+                                },
                                 {
                                     "type": "button",
                                     "tap_action": {
@@ -230,18 +210,6 @@
                                     },
                                     "name": "Restart pi",
                                     "icon": "mdi:restart"
-                                },
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "shell_command.pi_shutdown_system",
-                                        "confirmation": true,
-                                        "service_data": {},
-                                        "target": {}
-                                    },
-                                    "name": "Shutdown Pi",
-                                    "icon": "mdi:power"
                                 }
                             ]
                         }
@@ -421,21 +389,21 @@
                             "user": "3bbdfbe8ee684b3ba189b9a1b8fb4e9f"
                         }
                     ],
+                    "theme": "Google Dark Theme",
                     "badges": [],
                     "cards": [
                         {
-                            "type": "vertical-stack",
+                            "type": "custom:vertical-stack-in-card",
                             "cards": [
                                 {
                                     "type": "history-graph",
                                     "entities": [
                                         {
-                                            "entity": "sensor.hp_laser_mfp_137fnw"
+                                            "entity": "sensor.hp_laser_mfp_137fnw",
+                                            "hours_to_show": 24,
+                                            "refresh_interval": 1
                                         }
-                                    ],
-                                    "hours_to_show": 24,
-                                    "title": "HP Printer Status",
-                                    "refresh_interval": 1
+                                    ]
                                 },
                                 {
                                     "type": "glance",
@@ -450,13 +418,11 @@
                                             "name": "Total Pages Printed",
                                             "icon": "mdi:file"
                                         }
-                                    ],
-                                    "state_color": false,
-                                    "show_icon": true
+                                    ]
                                 },
                                 {
                                     "type": "gauge",
-                                    "entity": "sensor.hp_printer_toner_level",
+                                    "entity": "sensor.hp_printer_black_level",
                                     "min": 0,
                                     "max": 100,
                                     "needle": true,
@@ -466,7 +432,8 @@
                                         "red": 0
                                     }
                                 }
-                            ]
+                            ],
+                            "title": "HP Printer"
                         }
                     ]
                 }
