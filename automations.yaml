@@ -1,4 +1,3 @@
-# Turn off TV at midnight
 - id: '1599685242871'
   alias: Turn off TV at midnight
   description: ''
@@ -16,7 +15,6 @@
     entity_id: media_player.living_room_tv
     service: media_player.turn_off
   mode: single
-# Auto TV On
 - id: '1618420788115'
   alias: Auto TV On
   description: ''
@@ -47,35 +45,33 @@
       volume_level: 0.4
     entity_id: media_player.living_room_tv
   mode: single
-# cleanup motion folders
 - id: '1618420788116'
   alias: Cleanup motion at midnight
   description: ''
   mode: single
   trigger:
-    - platform: time
-      at: '00:00:00'
+  - platform: time
+    at: 00:00:00
   condition: []
   action:
-    - service: shell_command.cam_cleanup
-      data:
-        folder: ipcam_6
-    - service: shell_command.cam_cleanup
-      data:
-        folder: ipcam_5
-    - service: shell_command.cam_cleanup
-      data:
-        folder: ipcam_2
-    - service: shell_command.cam_cleanup
-      data:
-        folder: ipcam_4
-    - service: shell_command.cam_cleanup
-      data:
-        folder: ipcam_7
-    - service: shell_command.cam_cleanup
-      data:
-        folder: ipcam_3
-# on motion camera 6 
+  - service: shell_command.cam_cleanup
+    data:
+      folder: ipcam_6
+  - service: shell_command.cam_cleanup
+    data:
+      folder: ipcam_5
+  - service: shell_command.cam_cleanup
+    data:
+      folder: ipcam_2
+  - service: shell_command.cam_cleanup
+    data:
+      folder: ipcam_4
+  - service: shell_command.cam_cleanup
+    data:
+      folder: ipcam_7
+  - service: shell_command.cam_cleanup
+    data:
+      folder: ipcam_3
 - id: '1622010139182'
   alias: on motion - 2nd floor entrance
   description: ''
@@ -112,7 +108,6 @@
       title: Motion detected
       message: Someone is at the 2nd floor entrance
   mode: single
-# on motion camera 2
 - id: '1622018300153'
   alias: on motion - 1st floor entrance
   description: ''
@@ -149,7 +144,6 @@
       title: Motion detected
       message: Someone is at the 1st floor entrance
   mode: single
-# on motion camera 4
 - id: '1622018482810'
   alias: on motion - garage
   description: ''
@@ -186,7 +180,6 @@
       title: Motion detected
       message: Someone is outside the garage
   mode: single
-# on motion camera 5
 - id: '1622018652337'
   alias: on motion - backyard
   description: ''
@@ -223,7 +216,6 @@
       title: Motion detected
       message: Someone is in the backyard
   mode: single
-# on motion camera 7
 - id: '1622018986698'
   alias: on motion - front yard
   description: ''
@@ -260,7 +252,6 @@
       title: Motion detected
       message: Someone is at the front yard
   mode: single
-# on motion camera 3
 - id: '1622019496381'
   alias: on motion - anooma
   description: ''
@@ -296,4 +287,14 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: anooma alert
+  mode: single
+- id: '1629319427264'
+  alias: Auto Restart hass
+  description: ''
+  trigger:
+  - platform: time
+    at: 00:10:00
+  condition: []
+  action:
+  - service: homeassistant.restart
   mode: single
