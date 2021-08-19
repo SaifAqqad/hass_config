@@ -38,10 +38,7 @@ recorder:
 
 # https://blog.ceard.tech/2020/05/home-assistant-docker-and-using-ssh.html 
 shell_command:
-  pi_restart_cameras: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl restart camplayer"'
-  pi_shutdown_cameras: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl stop camplayer"'
   pi_restart_system: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo reboot"'
-  pi_shutdown_system: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo shutdown -P now"'
   cam_copy_latest: "cp -f \"{{folder}}/snapshot_latest.jpg\" \"{{folder}}/snapshot_{{now()}}.jpg\""
   cam_cleanup: "find /media/{{folder}} -type f -name \"*.jpg\" -exec rm {} \\;"
   cam_rm_excess: "/config/rm_excess.sh '{{folder}}'"
@@ -69,6 +66,18 @@ camera:
     name: motion_anooma
     file_path: /media/ipcam_3/snapshot_latest.jpg
 
+switch:
+  - platform: command_line
+    switches:
+      pi: 
+        # command_on: # pending living room switch for WOL https://www.home-assistant.io/integrations/wake_on_lan/
+        command_off: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo shutdown -P now"'
+        friendly_name: "Living Room Pi"
+      pi_camplayer:
+        command_on: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl start camplayer"'
+        command_off: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl stop camplayer"'
+        command_state: 'ssh -i /config/ssh/id_rsa -o StrictHostKeyChecking=accept-new pi@192.168.0.74 "sudo systemctl is-active camplayer"'
+        friendly_name: "Pi Camplayer"
 
 binary_sensor:
   - platform: hikvision
