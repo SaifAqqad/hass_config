@@ -107,6 +107,11 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: Someone is at the 2nd floor entrance
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   mode: single
 - id: '1622018300153'
   alias: on motion - 1st floor entrance
@@ -143,6 +148,11 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: Someone is at the 1st floor entrance
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   mode: single
 - id: '1622018482810'
   alias: on motion - garage
@@ -179,6 +189,11 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: Someone is outside the garage
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   mode: single
 - id: '1622018652337'
   alias: on motion - backyard
@@ -215,6 +230,11 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: Someone is in the backyard
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   mode: single
 - id: '1622018986698'
   alias: on motion - front yard
@@ -251,6 +271,11 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: Someone is at the front yard
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   mode: single
 - id: '1622019496381'
   alias: on motion - anooma
@@ -287,6 +312,11 @@
           uri: app://com.hikvision.hikconnect
       title: Motion detected
       message: anooma alert
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
   mode: single
 - id: '1629319427264'
   alias: Auto Restart hass
