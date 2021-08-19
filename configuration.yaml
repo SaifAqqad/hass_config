@@ -126,6 +126,7 @@ sensor:
     host: 192.168.0.230
     baseoid: 1.3.6.1.2.1.1.3.0
     accept_errors: true
+    default_value: '0'
     unit_of_measurement: "minutes"
     value_template: "{{((value | int) / 6000) | int}}"
     username: !secret snmp_user
@@ -135,11 +136,23 @@ sensor:
     priv_protocol: des
     version: '3'
   - platform: snmp
-    name: HP Printer Toner Level
+    name: HP Printer Black Capacity
     host: 192.168.0.230
     accept_errors: true
+    default_value: '0'
+    baseoid: 1.3.6.1.2.1.43.11.1.1.8.1.1
+    username: !secret snmp_user
+    auth_key: !secret snmp_key
+    auth_protocol: hmac-sha
+    priv_key: !secret snmp_key
+    priv_protocol: des
+    version: '3'
+  - platform: snmp
+    name: HP Printer Black Remaining
+    host: 192.168.0.230
+    accept_errors: true
+    default_value: '0'
     baseoid: 1.3.6.1.2.1.43.11.1.1.9.1.1
-    unit_of_measurement: "%"
     username: !secret snmp_user
     auth_key: !secret snmp_key
     auth_protocol: hmac-sha
@@ -151,6 +164,7 @@ sensor:
     host: 192.168.0.230
     baseoid: 1.3.6.1.2.1.43.10.2.1.4.1.1
     accept_errors: true
+    default_value: '-1'
     unit_of_measurement: "pages"
     username: !secret snmp_user
     auth_key: !secret snmp_key
@@ -158,7 +172,90 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-
+  - platform: snmp
+    name: HP Printer Status Code
+    host: 192.168.0.230
+    baseoid: 1.3.6.1.2.1.25.3.5.1.1.1
+    accept_errors: true
+    default_value: "Disconnected"
+    unit_of_measurement: "pages"
+    username: !secret snmp_user
+    auth_key: !secret snmp_key
+    auth_protocol: hmac-sha
+    priv_key: !secret snmp_key
+    priv_protocol: des
+    version: '3'
+  - platform: snmp
+    name: HP Printer Error Code
+    host: 192.168.0.230
+    baseoid: 1.3.6.1.4.1.11.2.3.9.4.2.1.4.1.2.22.0
+    accept_errors: true
+    default_value: "Disconnected"
+    unit_of_measurement: "pages"
+    username: !secret snmp_user
+    auth_key: !secret snmp_key
+    auth_protocol: hmac-sha
+    priv_key: !secret snmp_key
+    priv_protocol: des
+    version: '3'
+  - platform: template
+    sensors:
+      hp_printer_error:
+        friendly_name: "Printer Error"
+        value_template: >-
+          {% if is_state('sensor.hp_printer_error_code', '0') %}
+            Low supply of paper
+          {% elif is_state('sensor.hp_printer_error_code', '1') %}
+            No paper available
+          {% elif is_state('sensor.hp_printer_error_code', '2') %}
+            Low supply of toner
+          {% elif is_state('sensor.hp_printer_error_code', '3') %}
+            No toner available
+          {% elif is_state('sensor.hp_printer_error_code', '4') %}
+            A door on the printer is open
+          {% elif is_state('sensor.hp_printer_error_code', '5') %}
+            The printer is jammed
+          {% elif is_state('sensor.hp_printer_error_code', '6') %}
+            The printer is offline
+          {% elif is_state('sensor.hp_printer_error_code', '7') %}
+            Technical service is requested for the printer
+          {% elif is_state('sensor.hp_printer_error_code', '8') %}
+            The input tray is missing or not installed properly
+          {% elif is_state('sensor.hp_printer_error_code', '9') %}
+            The output tray is missing or not installed properly
+          {% elif is_state('sensor.hp_printer_error_code', '10') %}
+            The marker supply is missing or not installed properly
+          {% elif is_state('sensor.hp_printer_error_code', '11') %}
+            The output tray is nearly full
+          {% elif is_state('sensor.hp_printer_error_code', '12') %}
+            The output tray is full
+          {% elif is_state('sensor.hp_printer_error_code', '13') %}
+            The input tray is empty
+          {% elif is_state('sensor.hp_printer_error_code', '14') %}
+            The printer is overdue for preventative maintenance
+          {% else %}  
+            Unknown
+          {% endif %}
+      hp_printer_status:
+        friendly_name: "Printer Status"
+        value_template: >-
+          {% if is_state('sensor.hp_printer_status_code', '1') %}
+            Other
+          {% elif is_state('sensor.hp_printer_status_code', '2') %}
+            Unknown
+          {% elif is_state('sensor.hp_printer_status_code', '3') %}
+            Idle
+          {% elif is_state('sensor.hp_printer_status_code', '4') %}
+            Printing
+          {% elif is_state('sensor.hp_printer_status_code', '5') %}
+            Warming Up
+          {% else %}  
+            Unknown
+          {% endif %}
+      hp_printer_black_level:
+        friendly_name: "HP Printer Black Toner Level"
+        unit_of_measurement: '%'
+        value_template: "{{ (states('sensor.hp_printer_black_remaining')|float / states('sensor.hp_printer_black_capacity')|float * 100) | round(0) }}"
   - platform: radarr
     host: !secret radarr_host
     port: !secret radarr_port
