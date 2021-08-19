@@ -198,11 +198,20 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-  - platform: template
-    sensors:
-      hp_printer_error:
-        friendly_name: "Printer Error"
-        value_template: >-
+  - platform: radarr
+    host: !secret radarr_host
+    port: !secret radarr_port
+    api_key: !secret radarr_api_key 
+    monitored_conditions:
+      - upcoming
+      - commands
+      - status
+
+template:
+  - unique_id: hp_printer
+    sensor:
+      - name: error
+        state: >-
           {% if is_state('sensor.hp_printer_error_code', '0') %}
             Low supply of paper
           {% elif is_state('sensor.hp_printer_error_code', '1') %}
@@ -236,9 +245,8 @@ sensor:
           {% else %}  
             Unknown
           {% endif %}
-      hp_printer_status:
-        friendly_name: "Printer Status"
-        value_template: >-
+      - name: status
+        state: >-
           {% if is_state('sensor.hp_printer_status_code', '1') %}
             Other
           {% elif is_state('sensor.hp_printer_status_code', '2') %}
@@ -252,19 +260,10 @@ sensor:
           {% else %}  
             Unknown
           {% endif %}
-      hp_printer_black_level:
-        friendly_name: "HP Printer Black Toner Level"
+      - name: black_level
+        state: "{{ (states('sensor.hp_printer_black_remaining')|float / states('sensor.hp_printer_black_capacity')|float * 100) | round(0) }}"
         unit_of_measurement: '%'
-        value_template: "{{ (states('sensor.hp_printer_black_remaining')|float / states('sensor.hp_printer_black_capacity')|float * 100) | round(0) }}"
-  - platform: radarr
-    host: !secret radarr_host
-    port: !secret radarr_port
-    api_key: !secret radarr_api_key 
-    monitored_conditions:
-      - upcoming
-      - commands
-      - status
-
+        state_class: measurement
 # vacuum:  
 #   - platform: eufy_vacuum
 # eufy_vacuum:
