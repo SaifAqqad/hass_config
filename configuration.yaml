@@ -108,10 +108,7 @@ notify:
     platform: group
     services:
       - service: mobile_app_nokia_7_plus
-      - service: mobile_app_nokia_6_1
       - service: mobile_app_sm_n950f
-      - service: mobile_app_sm_a530f
-      - service: mobile_app_nokia_6_1_plus
       - service: mobile_app_sm_m625f
 
 automation: !include automations.yaml
