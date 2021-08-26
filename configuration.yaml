@@ -130,7 +130,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: snmp
     name: HP Printer Uptime
     host: 192.168.0.230
@@ -145,7 +144,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: snmp
     name: HP Printer Black Capacity
     host: 192.168.0.230
@@ -158,7 +156,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: snmp
     name: HP Printer Black Remaining
     host: 192.168.0.230
@@ -171,7 +168,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: snmp
     name: HP Printer Total Pages Printed
     host: 192.168.0.230
@@ -185,7 +181,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: snmp
     name: HP Printer Status Code
     host: 192.168.0.230
@@ -199,7 +194,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: snmp
     name: HP Printer Error Code
     host: 192.168.0.230
@@ -213,7 +207,6 @@ sensor:
     priv_key: !secret snmp_key
     priv_protocol: des
     version: '3'
-    scan_interval: 1
   - platform: radarr
     host: !secret radarr_host
     port: !secret radarr_port
