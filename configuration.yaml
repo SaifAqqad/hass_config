@@ -219,7 +219,7 @@ sensor:
 template:
   - unique_id: hp_printer
     sensor:
-      - name: error
+      - unique_id: error
         state: >-
           {% if is_state('sensor.hp_printer_error_code', '0') %}
             Low supply of paper
@@ -254,7 +254,7 @@ template:
           {% else %}  
             Unknown
           {% endif %}
-      - name: status
+      - unique_id: status
         state: >-
           {% if is_state('sensor.hp_printer_status_code', '1') %}
             Other
@@ -269,7 +269,7 @@ template:
           {% else %}  
             Unknown
           {% endif %}
-      - name: black_level
+      - unique_id: black_level
         state: "{{ (states('sensor.hp_printer_black_remaining')|float / states('sensor.hp_printer_black_capacity')|float * 100) | round(0) }}"
         unit_of_measurement: '%'
         state_class: measurement
