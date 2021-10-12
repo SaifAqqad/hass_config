@@ -204,7 +204,9 @@
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "shell_command.pi_restart_system",
-                                        "confirmation": true,
+                                        "confirmation": {
+                                            "text": "Are you sure you want to restart pi?"
+                                        },
                                         "service_data": {},
                                         "target": {}
                                     },
@@ -421,8 +423,24 @@
                                     ]
                                 },
                                 {
+                                    "type": "glance",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.template_hp_printer_error",
+                                            "name": "Printer Error",
+                                            "icon": "mdi:printer-alert"
+                                        },
+                                        {
+                                            "entity": "sensor.template_hp_printer_status",
+                                            "name": "Printer Status",
+                                            "icon": "mdi:printer"
+                                        }
+                                    ]
+                                },
+                                {
                                     "type": "gauge",
-                                    "entity": "sensor.hp_printer_black_level",
+                                    "name": "Black Toner Level",
+                                    "entity": "sensor.template_hp_printer_black_level",
                                     "min": 0,
                                     "max": 100,
                                     "needle": true,

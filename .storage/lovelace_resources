@@ -42,6 +42,11 @@
                 "url": "/hacsfiles/gallery-card/gallery-card.js?hacstag=397257186685469",
                 "type": "module",
                 "id": "34f88ebc55fe48d797a70c470d61d87b"
+            },
+            {
+                "url": "/hacsfiles/kb-better-graph-colors/kb-better-graph-colors.js?hacstag=313269367110",
+                "type": "module",
+                "id": "d818b198b0e441d0a2eb86aaf84c0bb1"
             }
         ]
     }
